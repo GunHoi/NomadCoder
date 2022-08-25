@@ -8,6 +8,7 @@
     <title>Momentum</title>
 </head>
 <body>
+    <h2 id="clock">00:00</h2>
     <form id="login-form" class="hidden">
         <!-- input 태그 안에서 유효성 검사를 하기 위해서는
         input태그가 form 태그 안에 있어야 한다.-->
@@ -21,15 +22,19 @@
         <!-- form이 submit 되거나 button이 눌리면 브라우저는
         자동으로 이를 제출하고 새로고침을 해버린다.-->
     <h1 id="greeting" class="hidden"> </h1>
-    <h2 id="clock">00:00</h2>
+    <form id="todo-form">
+        <input type="text" placeholder="Write a To Do and Press Enter" required />
+    </form>
+    <ul id="todo-list"></ul>
+    <!-- JS에서 리스트를 채울 것 -->
     <div id="quote"> 
         <span></span>
         <span></span>
     </div>
-    <img src="" />
     <script src="js/greeting.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/quotes.js"></script>
     <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
 </body>
 </html>
