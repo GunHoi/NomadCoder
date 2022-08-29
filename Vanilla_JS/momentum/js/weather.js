@@ -1,14 +1,17 @@
 const API_KEY = " ";    //본인 API key값 입력
+const weather = document.querySelector("#weather span:first-child");
+const city = document.querySelector("#weather span:last-child");
 
 function onGeoSuccess(position){
     const lat = position.coords.latitude;  //latitude
     const lon = position.coords.longitude;;  //longitude
+    console.log(lat+">"+lon);
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
-    fetch(url).then(response => response.json()).then(date => {
-        const weather = document.querySelector("#weather span:first-child");
-        const city = document.querySelector("#weather span:first-child");
+    console.log(url);
+    fetch(url).then(response => response.json()).then(data => { 
+        console.log(`왜 안됨? ${data.name}`);       
+        city.innerText =  data.name;
         weather.innerText = data.weather[0].main;
-        city.innetText =  data.name;
     }); 
 }
 /*fetch를 통해 url을 불러올 수 있다. 
