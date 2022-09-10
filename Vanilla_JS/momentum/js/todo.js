@@ -25,13 +25,12 @@ function paintToDo(newTodo){
     const li = document.createElement("li");
     li.id = newTodo.id;
     const span = document.createElement("span");
-    span.innerText = newTodo.text;
+    span.innerText = newTodo.text+" ";
     const button = document.createElement("button");
-    button.innerText = "❌";
+    button.innerText = "✔️";
     button.addEventListener("click", deleteToDo);   
     li.appendChild(span);   //li의 자식으로 span을 넣는다.
-    li.appendChild(button); //li 자식으로 button 추가
-    
+    li.appendChild(button); //li 자식으로 button 추가   
     toDoList.appendChild(li);   //id가 toDoList인 태그에 li를 자식으로 넣는다.
     
 }

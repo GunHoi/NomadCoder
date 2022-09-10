@@ -8,32 +8,47 @@
     <title>Momentum</title>
 </head>
 <body>
-    <h2 id="clock">00:00</h2>
-    <form id="login-form" class="hidden">
-        <!-- input 태그 안에서 유효성 검사를 하기 위해서는
-        input태그가 form 태그 안에 있어야 한다.-->
-        <input  
-          required
-          maxlength="15" 
-          type="text" 
-          placeholder="what is your name?" />
-        <input type="submit" value="Log In" />
-    </form>
-        <!-- form이 submit 되거나 button이 눌리면 브라우저는
-        자동으로 이를 제출하고 새로고침을 해버린다.-->
-    <h1 id="greeting" class="hidden"> </h1>
-    <form id="todo-form">
-        <input type="text" placeholder="Write a To Do and Press Enter" required />
-    </form>
-    <ul id="todo-list"></ul>
-    <!-- JS에서 리스트를 채울 것 -->
-    <div id="quote"> 
-        <span></span>
-        <span></span>
-    </div>
-    <div id="weather">
-        <span></span>
-        <span></span>
+    <div id="bgimg">
+        <div id="weather">
+            <span></span>
+            <span></span>
+        </div>
+        <div id="city"></div>
+        <div id="clock">00:00</div>
+        <form id="login-form" class="hidden">
+            <!-- input 태그 안에서 유효성 검사를 하기 위해서는
+            input태그가 form 태그 안에 있어야 한다.-->
+            <input id="login-form-input" 
+            required
+            maxlength="15" 
+            type="text" 
+            placeholder="what is your name?" />
+            <input id="login-form-submit" type="submit" value="Log In" />
+        </form>
+            <!-- form이 submit 되거나 button이 눌리면 브라우저는
+            자동으로 이를 제출하고 새로고침을 해버린다.-->
+        <h1 id="greeting" class="hidden"> </h1>
+        <div id="quote"> 
+            <span></span>
+            <span></span>
+        </div>
+        <form id="todo-form">
+            <input id="todo-form-input" maxlength="60" type="text" placeholder="Write a To Do and Press Enter" required />
+        </form>
+        <div id="Footer">
+            <div id="memo">
+                <h2>Not Saved Just Memo</h2>
+                <textarea cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <ul id="todo-list"></ul>
+            </div>
+            <div id="myLink">
+                <a href="https://github.com/GunHoi/NomadCoder/tree/master/Vanilla_JS">Go To GitHub</a>
+                <a href="https://nomadcoders.co/javascript-for-beginners/lobby">NomadCoder Vanilla JS</a>
+            </div>
+        </div>
+        <!-- JS에서 리스트를 채울 것 -->
     </div>
     <script src="js/greeting.js"></script>
     <script src="js/clock.js"></script>

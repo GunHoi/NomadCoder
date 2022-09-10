@@ -1,3 +1,100 @@
 .hidden{
-    display: none;
+    display:none;
+}
+.show{
+    display:flex;
+}
+#bgimg{
+    color:white;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+#clock{
+    font-size: 60px;    
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+}
+#login-form{
+    margin-top: 20px;
+    justify-content: center;
+}
+#todo-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+#todo-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#quote{
+    font-weight: bold;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#weather{
+    padding-top: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: right;
+}
+#city{
+    padding-right: 10px;
+    font-size: 20px;
+    color: white;
+    display: flex;
+    justify-content: right;
+}
+#greeting{
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+}
+#login-form-input{
+    width: 180px;
+    height: 30px;
+    text-align: center;
+}#login-form-submit{
+    width: 60px;
+    height: 36px;
+    text-align: center;
+}
+#todo-form-input{
+    width: 300px;
+    height: 30px;
+    text-align: center;
+}
+#myLink{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 15px;
+}
+#myLink > a {
+    margin-bottom: 30px;
+    font-size: 30px;
+    text-decoration: none;
+    color: white;
+}
+#Footer{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+#memo{
+    margin-left: 30px;
+    color: white;
+}
+#memo > textarea{
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
 }

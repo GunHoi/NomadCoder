@@ -1,12 +1,14 @@
-const clock = document.querySelector("h2#clock");
+const clock = document.querySelector("#clock");
 
 function getClock(){
     const date = new Date();
     //clock.innerText=`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    const month = date.getMonth()+1;
+    const day = date.getDate();
     const hours = String(date.getHours()).padStart(2,"0");
     const minutes = String(date.getMinutes()).padStart(2,"0");
     const seconds = String(date.getSeconds()).padStart(2,"0");
-    clock.innerText = `${hours}:${minutes}:${seconds}`;
+    clock.innerText = `${month}/${day} ${hours}:${minutes}:${seconds}`;
     //date.getHours는 number를 반환하는데, padStart는 String형의
     //길이를 가져오므로, String()을 통해 형변환을 해야한다.
 }

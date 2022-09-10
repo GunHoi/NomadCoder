@@ -6,6 +6,7 @@ const greeting = document.querySelector("#greeting");
 
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
+const SHOW_CLASSNAME = "show";
 /*
 function handleLoginBtnClick(){
     const username = loginInput.value;
@@ -23,7 +24,8 @@ loginButton.addEventListener("click",handleLoginBtnClick);
 */
 function onLoginSubmit(event){
     event.preventDefault();
-    loginForm.classList.add(HIDDEN_CLASSNAME);
+    loginForm.classList.remove(SHOW_CLASSNAME); //show를 지우고
+    loginForm.classList.add(HIDDEN_CLASSNAME);  //hidden으로 가려준다.
     const username = loginInput.value;
     localStorage.setItem(USERNAME_KEY,username);
     // username을 localStorage에 저장한다.
@@ -45,7 +47,7 @@ submit event가 발생할 때, JS는 onLoginSubmit 함수를 호출하고
 기본 동작이 실행되는 것을 막아준다.
 */
 function paintGreetings(username){
-    greeting.innerText = `Hello ${username}`;
+    greeting.innerText = `Welcome! ${username}`;
     greeting.classList.remove(HIDDEN_CLASSNAME);
     /*greeting.innerText = "Hello " + username; 아래의 방식 더 선호
      ${변수명} , `<- 기호로 시작해야함(물결 위치 점) 
@@ -53,10 +55,11 @@ function paintGreetings(username){
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);
-
+                                                                            //<- 여기서부터 시작됨.
 if(savedUsername === null){
     //show the form
-    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.classList.remove(HIDDEN_CLASSNAME);   //hidden을 지우고
+    loginForm.classList.add(SHOW_CLASSNAME);        //show로 보여준다
     loginForm.addEventListener("submit", onLoginSubmit);
 } else{
     // show the greetings
