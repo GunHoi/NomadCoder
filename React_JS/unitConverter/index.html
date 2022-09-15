@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const root = document.getElementById("root");
+
+    const ConvertTime = () => {
+      const [time, setTime] = React.useState();
+      const [flipped, setFlipped] = React.useState(false);
+
+      const onChange = ({ target: { value } }) => {
+        setTime(value);
+      };
+      const resetInput = () => setTime(0);
+      const onFlip = () => {
+        resetInput();
+        setFlipped((current) => !current);
+      };
+      return (
+        <div>
+          {flipped ? (
+            <h3>convert {time} hours to minutes</h3>
+          ) : (
+            <h3>convert {time} minutes to hours</h3>
+          )}
+
+          <label htmlFor="minutes">Minutes</label>
+          <input 
+            value={flipped ? time * 60 : time}
+            id="minutes"
+            type="number"
+            placeholder="Minutes"
+            onChange={onChange}
+            disabled={flipped === true}
+          />
+          <br />
+          <label htmlFor="hours">Hours</label>
+          <input 
+            value={flipped ? time : time / 60}
+            id="hours"
+            type="number"
+            placeholder="Hours"
+            onChange={onChange}
+            disabled={flipped === false}
+          />
+          <hr />
+          <button onClick={resetInput}>Reset</button>
+          <button onClick={onFlip}>Flip</button>
+        </div>
+      );
+    };
+    const ConvertLength = () => {
+      const [length, setLength] = React.useState();
+      const [flipped, setFlipped] = React.useState(false);
+
+      const onChange = ({ target: { value } }) => {
+        setLength(value);
+      };
+      const resetInput = () => setLength(0);
+      const onFlip = () => {
+        resetInput();
+        setFlipped((current) => !current);
+      };
+      return (
+        <div>
+          {flipped ? (
+            <h3>convert {length} KM to Mile</h3>
+          ) : (
+            <h3>convert {length} Mile to KM</h3>
+          )}
+
+          <label htmlFor="kilometer">Kilometers</label>
+          <input //
+            value={flipped ? length / 0.6214 : length}
+            id="kilometer"
+            type="number"
+            placeholder="Kilometers"
+            onChange={onChange}
+            disabled={flipped === true}
+          />
+          <br />
+          <label htmlFor="mile">Miles</label>
+          <input //
+            value={flipped ? length : length * 0.6214}
+            id="mile"
+            type="number"
+            placeholder="Miles"
+            onChange={onChange}
+            disabled={flipped === false}
+          />
+          <hr />
+          <button onClick={resetInput}>Reset</button>
+          <button onClick={onFlip}>Flip</button>
+        </div>
+      );
+    };
+
+    const App = () => {
+      const [index, setIndex] = React.useState("x");
+    
+      const onSelect = ({ target: { value } }) => {
+        setIndex(value);
+      };
+      return (
+        <div>
+          <h1>Unit Converter</h1>
+          <select value={index} onChange={onSelect}>
+            <option value="x">Select your units</option>
+            <option value="0">Time</option>
+            <option value="1">Lenghth</option>
+          </select>
+          <hr />
+          {index === "x" ? <h3>"Please Select Your Units!"</h3> : null}
+          {index === "0" ? <ConvertTime /> : null}
+          {index === "1" ? <ConvertLength /> : null}
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, root);
+  </script>
+</html>
